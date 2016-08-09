@@ -13,7 +13,7 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 
 The necessary items associated with this project include:
 
-1.) ttgroupmeans.csv - a tidy data set that includes the calculated mean of each measurement/feature for each subject across on each activity
-2.) run_analysis.R - the R script used to do these conversions
-3.) CodeBook.md - a description of what is accomplished by the run_analysis.R script
-4.) README.md - an overview of this submission for the Coursera Getting and Cleaning Data Assignment
+1. ttgroupmeans.csv - a tidy data set that includes the calculated mean of each measurement/feature for each subject across on each activity
+2. run_analysis.R - the R script used to do these conversions
+3. CodeBook.md - a description of what is accomplished by the run_analysis.R script
+4. README.md - an overview of this submission for the Coursera Getting and Cleaning Data Assignment
