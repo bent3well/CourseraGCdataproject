@@ -4,8 +4,7 @@
 The dataset includes the subject, the Activity, and all 561 measurements recorded by the smartphone. There are 563 columns (variables) in total. The raw dataset did not include variable names, so the names "subject", "ActivityID", and the list in the "features.txt" file were used to label the 561 measurements. Find the features.txt file here: https://github.com/bent3well/CourseraGCdataproject/blob/master/features.txt
 
 ##Variables:
-### subject 
-#### Column 1
+### subject (Column 1)
 The subject is a number 1 through 30. It identifies the individual/volunteer was was completing the activity.
 
 ### Activity
