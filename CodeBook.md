@@ -1,4 +1,5 @@
-# Codebook for Getting and Cleaning Data Assignment on Cousera
+# Codebook
+##Codebook for Getting and Cleaning Data Assignment on Cousera
 
 See the Readme.md file for a description of the requirements for this project and for the location of the original raw data used.
 
