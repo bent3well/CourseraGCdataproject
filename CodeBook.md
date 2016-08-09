@@ -1,7 +1,7 @@
 #CodeBook
 ##Codebook for Getting and Cleaning Data Assignment on Cousera
 
-###See the Readme.md file for a description of the requirements for this project and for the location of the original raw data used.
+####See the Readme.md file for a description of the requirements for this project and for the location of the original raw data used.
 
 The data was collected from a Samsung Galaxy smartphone using its accelerometer and gyroscope. Thirty (30) volunteers (subjects) were measured completing six activities while the smartphone wearing the smartphone on their waist.
 
