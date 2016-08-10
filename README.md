@@ -1,7 +1,16 @@
 #CourseraGCdataproject ReadMe
 ###Project for Getting and Cleaning Data Course on Coursera
 
-Four things were required as a part of the submission of this assignment--1) a tidy data set, 2) a link to a Github repository with your script for performing the analysis, and 3) a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. 4) You should also include a README.md in the repo with your scripts. 
+
+#### Assignment requirements
+##### Throughout the script and this README, notes will indicate which number from numbers 1-5 below is being completed is being completed 
+You should create one R script called run_analysis.R that does the following.
+
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement.
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive variable names.
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 The data being manipulated in this project are related to wearable computing and were collected using a Samsung Galaxy smartphone. The original files can be found at the following link:
 
@@ -26,6 +35,6 @@ The raw dataset did not include variable names, so the names "subject", "Activit
 
 The activityID indicates what activity is being tracked. The activityIDs include the numbers 1 through 6 and the activity names, which were provided in a separate file, are WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, and LAYING. This variable was added to the dataset and named "Activity". The Activity variable was created using the join function within the plyr package. The ActivityID variable was then removed.
 
-The mean of each measurement was calculated using the colMeans function. A similar function does not exist to calculate the standard deviation of columns, so the apply function was used to apply the sd function to all columns that include measurements.
+The 
 
 The final step was to calculate the mean for each measurement for each subject by each exercise. The dplyr package was installed to calculated this step. In order to prevent any adverse interactions between the plyr and dplyr packages, the plyr package was removed. The compiled data was grouped by subject and Activity. Then, the summarize_each function was used to calculate the mean of each grouping.
