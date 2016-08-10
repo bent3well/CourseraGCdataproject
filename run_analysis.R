@@ -1,3 +1,16 @@
+# You should create one R script called run_analysis.R that does the following.
+# Throughout the script, notes will indicate which number from numbers 1-5 below 
+#       is being completed ****************************************************
+
+#1. Merges the training and the test sets to create one data set.
+#2. Extracts only the measurements on the mean and standard deviation for each 
+#       measurement.
+#3. Uses descriptive activity names to name the activities in the data set
+#4. Appropriately labels the data set with descriptive variable names.
+#5. From the data set in step 4, creates a second, independent tidy data set 
+#       with the average of each variable for each activity and each subject.
+
+
 ## Reading informational files
 features_info <- readLines("./UCI HAR Dataset/features_info.txt")
 readMe <- readLines("./UCI HAR Dataset/README.txt")
@@ -31,7 +44,7 @@ test_subj
 test_labels
 test_data
 testdata <- cbind(test_subj, test_labels, test_data)
-colnames(testdata) <- c('subject', 'ActivityID', features)
+colnames(testdata) <- c('subject', 'ActivityID', features) # 4. ***************
 testdata
 
 
@@ -45,11 +58,11 @@ str(train_data)
 train_subj
 train_labels
 train_data
-traindata <- cbind(train_subj, train_labels, train_data)
-colnames(traindata) <- c('subject', 'ActivityID', features)
+traindata <- cbind(train_subj, train_labels, train_data) 
+colnames(traindata) <- c('subject', 'ActivityID', features) # 4. **************
 
 
-## Combining files
+## 1. Merges the training and the test sets to create one data set. ***********
 #### combine test and train data
 testtrain <- rbind(testdata, traindata)
 testtrain
@@ -64,6 +77,7 @@ actidname <- c('ActivityID', 'Activity')
 names(activity_labels) <- actidname
 activity_labels
 
+# 3. Uses descriptive activity names to name the activities in the data set ***
 #### To join the testtrain data and the activity labels
 library(plyr)
 testtraindataset <- join(testtrain, activity_labels, by = 'ActivityID')
@@ -73,25 +87,33 @@ ttdata <- testtraindataset[,c(1,564,3:563)]
 ttdata
 str(ttdata)
 
-#### calculate the means of all comlumns in ttdata
-colMeans(ttdata[3:563])
-ttmeans <- colMeans(ttdata[3:563])
+# 2. Extracts only the measurements on the mean and standard deviation for each 
+#       measurement.***********************************************************
+toextract <- grep("mean|std|subject|Activity",names(ttdata))
+ttdata.meanstd <- ttdata[,toextract]
 
-#### calculate the standard deviation of all comlumns in ttdata
-apply(ttdata[3:563], 2, sd)
-ttsd <- apply(ttdata[3:563], 2, sd)
-
+# 5. From the data set in step 4, creates a second, independent tidy data set **
+#       with the average of each variable for each activity and each subject.***
 #### Summarize data by subject and activity and calculate the mean
 detach(package:plyr) #### to prevent interactions between plyr and dplyr
 library(dplyr)
 
-ttdatatbl <- tbl_df(ttdata)
+ttdatatbl <- tbl_df(ttdata.meanstd)
 ttdatatbl
-ttdatagrouped <- group_by(ttdata, subject, Activity)
+ttdatagrouped <- group_by(ttdata.meanstd, subject, Activity)
 ttdatagrouped
 summarize_each(ttdatagrouped, funs(mean))
 ttgroupmeans <- data.frame(summarize_each(ttdatagrouped, funs(mean)))
 ttgroupmeans
+str(ttgroupmeans)
 
 ## Write ttgroupmeans to a CSV file
-write.csv(ttgroupmeans, './ttgroupmeans.csv', row.names = FALSE)
+write.table(ttgroupmeans, './ttgroupmeans.txt', row.names = FALSE)
+
+
+
+#### https://github.com/bent3well/CourseraGCdataproject/blob/master/CodeBook.md
+#### https://github.com/bent3well/CourseraGCdataproject/blob/master/README.md
+#### https://github.com/bent3well/CourseraGCdataproject/blob/master/run_analysis.R
+#### https://github.com/bent3well/CourseraGCdataproject/blob/master/ttgroupmeans.txt
+
