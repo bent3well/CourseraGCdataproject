@@ -1,6 +1,14 @@
 #CourseraGCdataproject ReadMe
 ###Project for Getting and Cleaning Data Course on Coursera
 
+The files included with this project include:
+
+1. ttgroupmeans.txt - a tidy data set that includes the calculated mean of each measurement/feature for each subject across on each activity
+2. run_analysis.R - the R script used to do these conversions
+3. CodeBook.md - a description of what is accomplished by the run_analysis.R script
+4. README.md - an overview of this submission for the Coursera Getting and Cleaning Data Assignment
+
+
 #### Assignment requirements
 ##### Throughout the script and this README, notes (#1, #2,...) will indicate which number from numbers 1-5 below is being completed is being completed 
 You should create one R script called run_analysis.R that does the following.
@@ -18,13 +26,6 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 A full description is available at the site where the data was obtained:
 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
-
-The necessary items associated with this project include:
-
-1. ttgroupmeans.txt - a tidy data set that includes the calculated mean of each measurement/feature for each subject across on each activity
-2. run_analysis.R - the R script used to do these conversions
-3. CodeBook.md - a description of what is accomplished by the run_analysis.R script
-4. README.md - an overview of this submission for the Coursera Getting and Cleaning Data Assignment
 
 The raw data was not in a tidy format, so some combinations and transformations were completed. These are discussed here.
 
